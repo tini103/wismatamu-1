@@ -1,0 +1,87 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="User.Master.cs" Inherits="WismaTamu.MasterUtama" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link rel="stylesheet" href="Style/columnal.css" />
+	<link rel="stylesheet" href="Style/style.css" />
+    <title>
+   <asp:ContentPlaceHolder ID="pagetitle" runat="server">
+    </asp:ContentPlaceHolder>
+    </title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="container" class="container">
+		    <div id="main" class="row">
+			    <div id="left-part" class="col_3 alpha">
+				    <div id="left-part-content">
+					    <img id="logo" src="images/logo.png" />
+					    <p id="alamat">
+						    UPT Fasilitas Umum (FASUM) ITS <br/>
+						    Lantai 2 Gedung SCC ITS <br/>
+						    Telp/Fax. (031) 596 1215
+						    <br/>
+					    </p>
+					    <div id="login-form">
+						    <input type="text" name="userid" placeholder="ID Pengguna" />
+						    <input type="password" name="password" placeholder="Password" />
+						    <input type="button" value="Masuk ke Sistem" />
+						    <input type="button" value="Daftar ke Sistem" />
+					    </div>
+					    <center><strong>Menu Utama</strong></center>
+					    <div id="sidebar">
+						    <div class="sidebar-item">
+							    <img src="images/luv.png" class="mobile-hide">
+							    <p>
+								    <strong>Pencarian Kamar</strong>
+								    Lakukan pencarian dan pemesanan kamar pada tanggal tertentu sesuai keinginan.
+							    </p>
+						    </div>
+						    <div class="sidebar-item" >
+							    <img src="images/kertas.png" class="mobile-hide">
+							    <p>
+								    <strong>Konfirmasi Pembayaran</strong>
+								    Lakukan konfirmasi pembayaran pesanan yang sudah Anda lakukan.
+							    </p>
+						    </div>
+					    </div>
+				    </div>
+				
+			    </div>
+		
+			    <div id="right-part" class="col_9 omega">
+				    <div id="title">
+					    <div id="title-content">
+						    <h2>
+                                <asp:ContentPlaceHolder ID="title" runat="server">
+        
+                                </asp:ContentPlaceHolder>
+						    </h2>
+					    </div>
+				
+				    </div>
+				    <div id="Div1">
+					    <div id="content-content">
+						      <asp:ContentPlaceHolder ID="content" runat="server">
+        
+                              </asp:ContentPlaceHolder>
+					    </div>
+				
+				    </div>
+			    </div>
+			    <div id="footer" class="row">
+			    Guesthouse ITS : Booking Management System <br/>
+			    Desain Web oleh Wira
+			    </div>
+		    </div>
+		
+		
+	    </div>
+
+    </form>
+</body>
+</html>
