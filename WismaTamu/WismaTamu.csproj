@@ -96,7 +96,13 @@
       <DependentUpon>ManageMember.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model\Member.cs" />
+    <Compile Include="Model\Pesanan.cs" />
+    <Compile Include="Model\Petugas.cs" />
     <Compile Include="Model\WismaTamuContext.cs" />
+    <Compile Include="Model\WismaTamuDb.cs" />
+    <Compile Include="Pengendali\PengendaliPetugas.cs" />
+    <Compile Include="Pengendali\PengendaliSesi.cs" />
+    <Compile Include="Sistem\Md5Helper.cs" />
     <Compile Include="User.Master.cs">
       <DependentUpon>User.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
