@@ -31,6 +31,15 @@ namespace WismaTamu {
         protected global::System.Web.UI.WebControls.TextBox tglCheckOut;
         
         /// <summary>
+        /// listKamarUpdatePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel listKamarUpdatePanel;
+        
+        /// <summary>
         /// btnCariKamar control.
         /// </summary>
         /// <remarks>
@@ -38,5 +47,41 @@ namespace WismaTamu {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCariKamar;
+        
+        /// <summary>
+        /// listKamarPlaceholder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder listKamarPlaceholder;
+        
+        /// <summary>
+        /// lblTanggalAwal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTanggalAwal;
+        
+        /// <summary>
+        /// lblTanggalAkhir control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTanggalAkhir;
+        
+        /// <summary>
+        /// rptKamar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptKamar;
     }
 }

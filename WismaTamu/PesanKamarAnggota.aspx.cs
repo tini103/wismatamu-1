@@ -11,7 +11,13 @@ namespace WismaTamu
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            listKamarPlaceholder.Visible = false;
+        }
 
+
+        protected void btnCariKamar_Click(object sender, EventArgs e)
+        {
+            listKamarPlaceholder.Visible = true;
         }
     }
 }
