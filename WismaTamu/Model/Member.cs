@@ -6,6 +6,10 @@ using System.Web;
 
 namespace WismaTamu.Model
 {
+    // PERINGATAN!
+    // Kelas ini hanyalah kelas contoh sebagai referensi, jangan gunakan kelas ini untuk aplikasi jadi.
+    // -- Wira
+
     public class Member
     {
         [Required]
