@@ -27,4 +27,30 @@
             </td>
         </tr>
     </table>
+   
+    
+    <asp:UpdatePanel ID="listKamarUpdatePanel" runat="server">
+    <ContentTemplate>
+    <p>
+        <asp:Button ID="btnCariKamar" runat="server" Text="Cari Kamar" OnClick="btnCariKamar_Click"/>
+        
+    </p>
+    <asp:PlaceHolder ID="listKamarPlaceholder" runat="server">
+        <div id="popup">
+            <h4>Kamar yang tersedia</h4>
+            Pada tanggal <asp:Label ID="lblTanggalAwal" runat="server" Text="Label "></asp:Label> hingga tanggal  <asp:Label ID="lblTanggalAkhir" runat="server" Text="Label"></asp:Label>
+            <div id="inner-popup">
+               
+                <asp:Repeater ID="rptKamar" runat="server">
+                    <ItemTemplate>
+                        <asp:CheckBoxList ID="CheckBoxList1" runat="server">
+                            <asp:ListItem Text="Kamar 1" Value="kamarId" />
+                        </asp:CheckBoxList>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </div>
+        </div>
+    </asp:PlaceHolder>
+    </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>

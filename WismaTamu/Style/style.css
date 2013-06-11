@@ -92,6 +92,14 @@
     background-color: #aaeeff;
 }
 
+#popup {
+    padding: 10px;
+    width: 100%;
+}
+#inner-popup {
+    padding: 10px;
+    width: 100%;
+}
 /* Umum */
 h1, h2, h3, h4
 {
