@@ -58,10 +58,7 @@
 }
 
 
-#title
-{
-	background-color: #d5f6ff;
-}
+
 
 #title-content
 {
@@ -88,9 +85,15 @@
 	
 }
 
+/* Halaman */
+#info {
+    width: 100%;
+    padding: 10px;
+    background-color: #aaeeff;
+}
+
 /* Umum */
 h1, h2, h3, h4
 {
 	margin: 0;
 }
-

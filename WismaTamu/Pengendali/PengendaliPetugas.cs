@@ -13,7 +13,9 @@ namespace WismaTamu.Pengendali
         private static WismaTamuDb db = new WismaTamuDb();
         public static bool CekPetugas(string idPetugas, string kataSandiMD5)
         {
-            if((db.Petugas.Where(x => x.NamaAkun == idPetugas && x.SandiMasuk == Md5Helper.KonversiKeMd5(kataSandiMD5)).Count() == 1))
+            kataSandiMD5 = Md5Helper.KonversiKeMd5(kataSandiMD5);
+
+            if((db.Petugas.Where(x => x.NamaAkun == idPetugas && x.SandiMasuk == kataSandiMD5).Count() == 1))
             {
                 return true;
             }
