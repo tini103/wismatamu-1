@@ -56,15 +56,15 @@ namespace WismaTamu.Pengendali
             }
         }
 
-        public static string GetRolePengguna()
+        public static int GetRolePengguna()
         {
             if (HttpContext.Current.Session["role"] != null)
             {
-                return HttpContext.Current.Session["role"].ToString();
+                return (int) HttpContext.Current.Session["role"];
             }
             else
             {
-                return null;
+                return 1;
             }
         }
 

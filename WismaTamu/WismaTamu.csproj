@@ -95,8 +95,11 @@
     <Compile Include="ManageMember.aspx.designer.cs">
       <DependentUpon>ManageMember.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Model\Anggota.cs" />
+    <Compile Include="Model\Kamar.cs" />
     <Compile Include="Model\Member.cs" />
     <Compile Include="Model\Pesanan.cs" />
+    <Compile Include="Model\PesananKamar.cs" />
     <Compile Include="Model\Petugas.cs" />
     <Compile Include="Model\WismaTamuContext.cs" />
     <Compile Include="Model\WismaTamuDb.cs" />
