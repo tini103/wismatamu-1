@@ -9,6 +9,7 @@ namespace WismaTamu.Model
     public class PesananKamar
     {
         [Required]
+        [Key]
         public int IdPesananKamar { get; set; }
 
         [Required]

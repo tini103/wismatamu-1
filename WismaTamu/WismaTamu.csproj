@@ -13,12 +13,13 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WismaTamu</RootNamespace>
     <AssemblyName>WismaTamu</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -28,6 +29,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -36,13 +38,15 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AjaxControlToolkit">
       <HintPath>..\packages\AjaxControlToolkit.7.0607\lib\40\AjaxControlToolkit.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="HtmlAgilityPack">
       <HintPath>..\packages\AjaxControlToolkit.7.0607\lib\40\SanitizerProviders\HtmlAgilityPack.dll</HintPath>
@@ -51,26 +55,26 @@
     <Reference Include="SanitizerProviders">
       <HintPath>..\packages\AjaxControlToolkit.7.0607\lib\40\SanitizerProviders\SanitizerProviders.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Checkin.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Images\kertas.png" />
@@ -79,6 +83,7 @@
     <Content Include="KelolaDataTransaksi.aspx" />
     <Content Include="KonfirmasiPembayaran.aspx" />
     <Content Include="ManageMember.aspx" />
+    <Content Include="PendaftaranAnggota.aspx" />
     <Content Include="PesanKamarAnggota.aspx" />
     <Content Include="Style\build.css" />
     <Content Include="Style\columnal.css" />
@@ -92,6 +97,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Checkin.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Checkin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Checkin.aspx.designer.cs">
+      <DependentUpon>Checkin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -131,7 +143,15 @@
     <Compile Include="Model\Petugas.cs" />
     <Compile Include="Model\WismaTamuContext.cs" />
     <Compile Include="Model\WismaTamuDb.cs" />
-    <Compile Include="Pengendali\PengendaliAnggota.cs" />
+    <Compile Include="PendaftaranAnggota.aspx.cs">
+      <DependentUpon>PendaftaranAnggota.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PendaftaranAnggota.aspx.designer.cs">
+      <DependentUpon>PendaftaranAnggota.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pengendali\PengendaliDataAnggota.cs" />
+    <Compile Include="Pengendali\PengendaliDataPesanan.cs" />
     <Compile Include="Pengendali\PengendaliKamar.cs" />
     <Compile Include="Pengendali\PengendaliPetugas.cs" />
     <Compile Include="Pengendali\PengendaliSesi.cs" />

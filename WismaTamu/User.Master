@@ -42,13 +42,13 @@
 					    <div id="login-form">
                             <asp:PlaceHolder ID="loginPlaceholder" runat="server">
                                 <asp:TextBox ID="txtUserName" runat="server" placeholder="Nama pengguna"></asp:TextBox>
-                                <asp:TextBox ID="txtPassword" runat="server" placeholder="Kata sandi"></asp:TextBox>
+                                <asp:TextBox ID="txtPassword" runat="server" placeholder="Kata sandi" type="password"></asp:TextBox>
                                 <asp:Button ID="btnLogin" runat="server" Text="Log Masuk" />
                                 <asp:Button ID="btnDaftar" runat="server" Text="Daftar Pengguna Baru" />
                             </asp:PlaceHolder>
                             <asp:PlaceHolder ID="userInfoPlaceholder" runat="server">
                                 Anda masuk sebagai : <asp:Label ID="lblLoggedUser" runat="server" Text="Label"></asp:Label>
-                                <asp:Button ID="btnGantiPassword" runat="server" Text="Ganti Kata Sandi" />
+                                <asp:Button ID="btnKelolaAkun" runat="server" Text="Kelola Akun" />
                                 <asp:Button ID="btnLogout" runat="server" Text="Keluar (Logout)" />
                             </asp:PlaceHolder>
 
@@ -70,6 +70,43 @@
 								    Lakukan konfirmasi pembayaran pesanan yang sudah Anda lakukan.
 							    </p>
 						    </div>
+                            <% if(WismaTamu.Pengendali.PengendaliSesi.GetRolePengguna() == 0) { %>
+                                <div class="sidebar-item">
+                                    
+							    <p>
+								    <strong>Check-In Tamu</strong><br />
+								    Lakukan proses check-in untuk tamu.
+							    </p>
+                                </div>
+                                <div class="sidebar-item">
+                                    
+							    <p>
+								    <strong>Check-Out Tamu</strong><br />
+								    Lakukan proses check-out untuk tamu.
+							    </p>
+                                </div>
+                                <div class="sidebar-item">
+                                   
+							    <p>
+								    <strong>Melihat Data Transaksi</strong><br />
+								    Melihat data transaksi yang dilakukan oleh pengguna
+							    </p>
+                                </div>
+                                <div class="sidebar-item">
+                                    
+							    <p>
+								    <strong>Melihat Data Anggota</strong><br />
+								    Melihat data anggota yang terdaftar di dalam sistem.
+							    </p>
+                                </div>
+                                <div class="sidebar-item">
+                                    
+							    <p>
+								    <strong>Melihat Data Kamar</strong><br />
+								    Melihat data kamar yang terdaftar pada Guethouse
+							    </p>
+                                </div>
+                            <% } %>
 					    </div>
 				    </div>
 				

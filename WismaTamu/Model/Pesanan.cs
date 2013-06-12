@@ -14,15 +14,15 @@ namespace WismaTamu.Model
         public int IdPesanan { get; set; }
         
         [Required(ErrorMessage="Anggota pemesan belum ditentukan")]
-        public int AnggotaPemesanId { get; set; }
+        public string AnggotaPemesanId { get; set; }
         
         [ForeignKey("AnggotaPemesanId")]
         public virtual Anggota AnggotaPemesan { get; set; }
 
         [Required]
-        public int KamarDipesanId { get; set; }
+        public int IdPesananKamar { get; set; }
 
-        [ForeignKey("KamarDipesanId")]
+        [ForeignKey("IdPesananKamar")]
         public PesananKamar KamarDipesan { get; set; }
 
         [Required]

@@ -18,11 +18,13 @@ namespace WismaTamu
 
         protected void btnProses_Click(object sender, EventArgs e)
         {
-            if (cbSetuju.Checked)
-            {
-                PengendaliDataAnggota pengendaliAnggota = new PengendaliDataAnggota();
-                pengendaliAnggota.TambahAnggotaBaru(tbIdentitas.Text, tbNama.Text, tbAlamat.Text, tbKontak.Text, tbSandi.Text, tbSurel.Text);
-            }
+            
+            //if (cbSetuju.Checked)
+            //{
+            //    PengendaliDataAnggota pengendaliAnggota = new PengendaliDataAnggota();
+            //    pengendaliAnggota.TambahAnggotaBaru(tbIdentitas.Text, tbNama.Text, tbAlamat.Text, tbKontak.Text, tbSandi.Text, tbSurel.Text);
+            //}
+             
         }
     }
 }
