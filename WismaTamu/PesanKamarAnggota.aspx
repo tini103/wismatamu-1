@@ -48,7 +48,7 @@
                
                 <asp:Repeater ID="rptKamar" ItemType="WismaTamu.Model.Kamar" runat="server">
                     <ItemTemplate>
-                        <asp:CheckBox ID="chkKamarDipilih" runat="server" CssClass="hiddentext" Text="<%# Item.IdKamar %>" OnCheckedChanged="chkKamarDipilih_CheckedChanged"/>  <%# Item.GetNamaWisma() %> - <%# Item.NamaKamar %> - Kapasitas <%# Item.KapasitasKamar %> orang - Tarif : Rp. <%# Item.HargaPerMalam %> / Malam.
+                        <asp:CheckBox ID="chkKamarDipilih" AutoPostBack="true" runat="server" CssClass="hiddentext" Text="<%# Item.IdKamar %>" OnCheckedChanged="chkKamarDipilih_CheckedChanged"/>  <%# Item.GetNamaWisma() %> - <%# Item.NamaKamar %> - Kapasitas <%# Item.KapasitasKamar %> orang - Tarif : Rp. <%# Item.HargaPerMalam %> / Malam.
                         <asp:Button ID="btnLihatKamar" Text="Lihat Kamar" CommandName="doLihatKamar" runat="server"/><br />
                     </ItemTemplate>
                 </asp:Repeater>

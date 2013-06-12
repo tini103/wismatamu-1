@@ -66,14 +66,15 @@ namespace WismaTamu
 
         public void chkKamarDipilih_CheckedChanged(object sender, EventArgs e)
         {
-            double hargaTotal = 0.0; 
-            foreach (RepeaterItem item in rptKamar.Items)
-            {
-                // Cek setiap checkbox, dan hitung harga totalnya
-                CheckBox chk = (CheckBox) item.FindControl("chkKamarDipilih");
+            // Not implemented
+            //double hargaTotal = 0.0; 
+            //foreach (RepeaterItem item in rptKamar.Items)
+            //{
+            //    // Cek setiap checkbox, dan hitung harga totalnya
+            //    CheckBox chk = (CheckBox) item.FindControl("chkKamarDipilih");
 
-                hargaTotal += kamarTersedia[Int16.Parse(chk.Text)].HargaPerMalam;
-            }
+            //    hargaTotal += kamarTersedia[Int16.Parse(chk.Text)].HargaPerMalam;
+            //}
         }
     }
 }
