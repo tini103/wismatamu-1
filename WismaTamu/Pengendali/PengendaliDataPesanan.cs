@@ -70,7 +70,7 @@ namespace WismaTamu.Pengendali
             return db.Pesanan.SingleOrDefault(x => x.IdPesanan == inputID);
         }
 
-        public List<Pesanan> LihatPesananMember(int idAnggota)
+        public List<Pesanan> LihatPesananMember(string idAnggota)
         {
             List<Pesanan> listPesanan = new List<Pesanan>();
             foreach (var pesanan in db.Pesanan.Where(x => x.AnggotaPemesanId == idAnggota))
