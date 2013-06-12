@@ -147,7 +147,6 @@
     <Compile Include="PendaftaranAnggota.aspx.designer.cs">
       <DependentUpon>PendaftaranAnggota.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pengendali\PengedaliKamar.cs" />
     <Compile Include="Pengendali\PengendaliDataAnggota.cs" />
     <Compile Include="Pengendali\PengendaliDataPesanan.cs" />
     <Compile Include="Pengendali\PengendaliKamar.cs" />

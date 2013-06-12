@@ -18,20 +18,26 @@
         <asp:ListItem>Wisma Bougenvile</asp:ListItem>
     </asp:DropDownList>
     &nbsp;&nbsp; 
-    <asp:Button ID="Button1" runat="server" Text="Cari" />
+    <asp:Button ID="Button1" runat="server" Text="Cari" OnClick="Button1_Click" />
     <br />
     &nbsp;&nbsp;&nbsp;
     <br />
-    <div style="background-color:#f5a562; height: 195px;">
-        Kamar untuk Wisma 
-        <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
 
-        <br />
+    <asp:PlaceHolder ID="DetilKamarPlaceHolder" runat="server">
+        <div id="popup">
+            <h4>Kamar untuk Wisma
+            <asp:Label ID="txtWisma" runat="server" Text="Label"></asp:Label> </h4>
+            <div id="inner-popup">
 
-        <br />
-        <asp:Repeater ID="Repeater1" runat="server">
-
-        </asp:Repeater>
-    </div>
-
+                <asp:Repeater ID="rptKamarWisma" ItemType="WismaTamu.Model.Kamar" runat="server">
+                    <ItemTemplate>
+                        <%--<asp:Label ID="detilKamar" runat="server" Text="<%# Item.NamaKamar %>"</asp:Label>
+                        <asp:Label ID="detilKamar1" runat="server" Text="<%# Item.JenisKamar %>"</asp:Label>
+                        <asp:Label ID="detilKamar2" runat="server" Text="<%# Item.KapasitasKamar %>"</asp:Label>
+                        <asp:Label ID="detilKamar" runat="server" Text="<%# Item.HargaPerMalam %>"</asp:Label>--%>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </div>
+        </div>
+    </asp:PlaceHolder>
 </asp:Content>
