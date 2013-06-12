@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="Style/columnal.css" />
     <link rel="stylesheet" href="Style/style.css" />
     <asp:PlaceHolder ID="cssRole" runat="server">
-        <% if(WismaTamu.Pengendali.PengendaliSesi.GetRolePengguna() == 0) { %>
+        <% if(WismaTamu.Pengendali.PengendaliSesi.GetRolePengguna() == 1) { %>
 	    <link rel="stylesheet" href="Style/style-user.css" />
         <% } else { %>
         <link rel="stylesheet" href="Style/style-admin.css" />
