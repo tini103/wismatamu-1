@@ -14,6 +14,11 @@ namespace WismaTamu.View
 
         }
 
+        protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
     
     }
 }

@@ -12,11 +12,11 @@
     </p>
     <asp:Label ID="Label1" runat="server" Text="Pilih Wisma"></asp:Label>
     &nbsp;&nbsp;
-    <asp:ListBox ID="ListBox1" runat="server" Height="24px" Width="479px" OnSelectedIndexChanged="ListBox1_SelectedIndexChanged">
+    <asp:DropDownList ID="DropDownList1" runat="server" Height="25px" Width="478px">
         <asp:ListItem>Wisma Yasmin</asp:ListItem>
         <asp:ListItem>Wisma Flamboyan</asp:ListItem>
         <asp:ListItem>Wisma Bougenvile</asp:ListItem>
-    </asp:ListBox>
+    </asp:DropDownList>
     &nbsp;&nbsp; 
     <asp:Button ID="Button1" runat="server" Text="Cari" />
     <br />
@@ -33,4 +33,5 @@
 
         </asp:Repeater>
     </div>
+
 </asp:Content>
