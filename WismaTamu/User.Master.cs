@@ -17,16 +17,28 @@ namespace WismaTamu
             {
                 userInfoPlaceholder.Visible = true;
                 loginPlaceholder.Visible = false;
+                lblLoggedUser.Text = PengendaliSesi.GetIdPengguna();
             }
             else
             {
                 userInfoPlaceholder.Visible = false;
                 loginPlaceholder.Visible = true;
+                
             }
 
             // Define event handler for button
             btnLogin.Click += btnLogin_Click;
-            btnDaftar.Click += btnDaftar_Click;  
+            btnDaftar.Click += btnDaftar_Click;
+            btnLogout.Click += btnLogout_Click;
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            // Lakukan proses logout
+            PengendaliSesi.LakukanLogout();
+
+            // Refresh halaman
+            Response.Redirect("/Default.aspx");
         }
 
         private void btnDaftar_Click(object sender, EventArgs e)

@@ -32,5 +32,19 @@ namespace WismaTamu.Pengendali
             dataAnggotaBaru.SurelAnggota = surel;
             db.Anggota.Add(dataAnggotaBaru);
         }
+    
+        public static bool CekAnggota(string idPengguna,string kataSandiMD5)
+        {
+ 	        // Cek data anggota apakah ada atau tidak
+            var dataAnggota = db.Anggota.Where(x => x.IdAnggota == idPengguna && x.PasswordAnggota == kataSandiMD5);
+            if (dataAnggota.Count() == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
