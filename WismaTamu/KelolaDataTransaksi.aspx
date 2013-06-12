@@ -11,24 +11,36 @@
     <div style="background-color:chocolate">
         <asp:Label ID="Label1" runat="server" Text="Label">Pencarian Pengguan&nbsp:&nbsp</asp:Label>
         <asp:TextBox ID="TextBox1" runat="server" Width="344px"></asp:TextBox>&nbsp&nbsp
-        <input type="submit" value="Cari" />
+        <asp:Button ID="Button1" runat="server" Text="Cari" OnClick="Button1_Click" />
         <p>
         </p>
         <p>
             <asp:Label ID="Label2" runat="server" Text="Untuk tangal Pemesanan :"></asp:Label>&nbsp&nbsp
             <asp:TextBox ID="tanggalPesan" runat="server" Width="191px"></asp:TextBox>
-                <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server"  TargetControlID="TanggalCheckin" Format="dd/MM/yyyy" />
+                <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server"  TargetControlID="tanggalPesan" Format="dd/MM/yyyy" />
         </p>
         <asp:PlaceHolder ID="listDataTransaksi" runat="server">
         <div id="popup">
-            Pada tanggal <asp:Label ID="lblTanggalAwal" runat="server" Text="Label "></asp:Label> hingga tanggal  <asp:Label ID="lblTanggalAkhir" runat="server" Text="Label"></asp:Label>
             <div id="inner-popup">
                
-                <asp:Repeater ID="rptKamar" runat="server">
+                <asp:Repeater ID="rptTransaksi" ItemType="WismaTamu.Model.Pesanan" runat="server">
                     <ItemTemplate>
-                        <asp:CheckBoxList ID="CheckBoxList1" runat="server">
-                            <asp:ListItem Text="Kamar 1" Value="kamarId" />
-                        </asp:CheckBoxList>
+                        <table>
+                            <tr>
+                                <td>
+                                    <asp:Label ID="LabelIdentisasA" runat="server" Text="<%# Item.AnggotaPemesanId %>"></asp:Label>
+                                    <asp:Label ID="LabelPesanan" runat="server" Text="<%# Item.IdPesanan %>"></asp:Label>
+                                    <asp:Label ID="LabelCheckin" runat="server" Text="<%# Item.TanggalCheckin %>"></asp:Label>
+                                    <asp:Label ID="LabelCheckOut" runat="server" Text="<%# Item.TanggalCheckout %>"></asp:Label>
+                                    <asp:Label ID="LabelBiaya" runat="server" Text="<%# Item.BiayaPemesanan %>"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:Button ID="Button2" runat="server" Text="Lihat Data Konfirmasi Pemesanan" />
+                                    <asp:Button ID="Button3" runat="server" Text="Detil Pesanan" />
+                                    <asp:Button ID="Button4" runat="server" Text="Hapus Pesanan Ini" />
+                                </td>
+                            </tr>
+                        </table>
                     </ItemTemplate>
                 </asp:Repeater>
             </div>

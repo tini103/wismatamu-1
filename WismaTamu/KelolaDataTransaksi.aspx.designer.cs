@@ -31,6 +31,15 @@ namespace WismaTamu {
         protected global::System.Web.UI.WebControls.TextBox TextBox1;
         
         /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
+        
+        /// <summary>
         /// Label2 control.
         /// </summary>
         /// <remarks>
@@ -67,30 +76,12 @@ namespace WismaTamu {
         protected global::System.Web.UI.WebControls.PlaceHolder listDataTransaksi;
         
         /// <summary>
-        /// lblTanggalAwal control.
+        /// rptTransaksi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTanggalAwal;
-        
-        /// <summary>
-        /// lblTanggalAkhir control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTanggalAkhir;
-        
-        /// <summary>
-        /// rptKamar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptKamar;
+        protected global::System.Web.UI.WebControls.Repeater rptTransaksi;
     }
 }

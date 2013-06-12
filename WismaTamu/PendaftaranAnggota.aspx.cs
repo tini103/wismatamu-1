@@ -20,8 +20,8 @@ namespace WismaTamu
         {
             if (cbSetuju.Checked)
             {
-                PengendaliDataAnggota pengendaliAnggota = new PengendaliDataAnggota();
-                pengendaliAnggota.TambahAnggotaBaru(tbIdentitas.Text, tbNama.Text, tbAlamat.Text, tbKontak.Text, tbSandi.Text, tbSurel.Text);
+                //PengendaliDataAnggota pengendaliAnggota = new PengendaliDataAnggota();
+                PengendaliDataAnggota.TambahAnggotaBaru(tbIdentitas.Text, tbNama.Text, tbAlamat.Text, tbKontak.Text, tbSandi.Text, tbSurel.Text);
             }
         }
     }
