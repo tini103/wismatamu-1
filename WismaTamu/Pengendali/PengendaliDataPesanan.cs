@@ -11,25 +11,40 @@ namespace WismaTamu.Pengendali
     {
         private static WismaTamuDb db = new WismaTamuDb();
 
-        public static void CekPesananRentangTanggal(DateTime tanggalCheckin, DateTime tanggalCheckout)
+        public static List<Kamar> CekPesananRentangTanggal(DateTime tanggalCheckin, DateTime tanggalCheckout)
         {
-            List<Pesanan> listPesanan = new List<Pesanan>();
+            List<Kamar> listKamarDilarangDipesan = new List<Kamar>();
+
+            // Cek 
             foreach (var pesanan in db.Pesanan.Where(x => tanggalCheckin < x.TanggalCheckin && tanggalCheckout > x.TanggalCheckout && x.StatusPembayaran > 0))
             {
-                listPesanan.Add(pesanan);
+                // Ambil kamar dipesan untuk pesanan tersebut
+                var kamarDipesan = db.PesananKamar.Where(x => x.IdPesanan == pesanan.IdPesanan);
+                foreach (PesananKamar pesananKamar in kamarDipesan)
+                {
+                    Kamar kamarDilarang = pesananKamar.Kamar;
+                    if (listKamarDilarangDipesan.Where(x => x.Equals(kamarDilarang)).Count() == 0)
+                    {
+                        listKamarDilarangDipesan.Add(kamarDilarang);
+                    }
+                }
             }
-            HasilPesananKamar(listPesanan);
+
+            // Ambil kamar yang tidak termasuk didalam daftar kamar dilarang
+            List<Kamar> listKamar = new List<Kamar>();
+            var dataKamar = db.Kamar.Where(x => x.KamarTersedia == true);
+            foreach (Kamar kamar in dataKamar)
+            {
+                if (listKamarDilarangDipesan.Where(x => x.Equals(kamar)).Count() == 0)
+                {
+                    listKamar.Add(kamar);
+                }
+            }
+
+            return listKamar;
         }
 
-        public static List<Kamar> HasilPesananKamar(List<Pesanan> listPesanan)
-        {
-            List<Kamar> listPesananKamar = new List<Kamar>();
-            foreach (var pesananKamar in listPesanan)
-            {
-                listPesananKamar.Add(pesananKamar.KamarDipesan.Kamar);
-            }
-            return listPesananKamar;
-        }
+      
        
         public static bool CekStatusKamarDipilih(int inputID)
         {
@@ -93,12 +108,26 @@ namespace WismaTamu.Pengendali
         public static void TambahPesananBaru(Pesanan dataPesananBaru)
         {
             db.Pesanan.Add(dataPesananBaru);
+            db.SaveChanges();
         }
 
         public static Pesanan Cari(string idAnggota, string tgl)
         {
             return db.Pesanan.SingleOrDefault(
                         x => x.AnggotaPemesanId == idAnggota && x.TanggalCheckin.ToString() == tgl);
+        }
+
+        public static int SetBuktiPembayaran(string idAnggota)
+        {
+            var data = db.Pesanan.SingleOrDefault(
+                           x => x.AnggotaPemesanId == idAnggota);
+
+            if (data.BuktiTransfer != "")
+            {
+                return 1;
+            }
+            else
+                return 0;
         }
     }
 }

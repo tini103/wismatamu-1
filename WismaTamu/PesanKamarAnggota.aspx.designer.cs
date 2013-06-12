@@ -13,6 +13,24 @@ namespace WismaTamu {
     public partial class PesanKamarAnggota {
         
         /// <summary>
+        /// listKamarUpdatePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel listKamarUpdatePanel;
+        
+        /// <summary>
+        /// pilihTanggalPlaceholder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder pilihTanggalPlaceholder;
+        
+        /// <summary>
         /// tglCheckIn control.
         /// </summary>
         /// <remarks>
@@ -47,15 +65,6 @@ namespace WismaTamu {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CompareValidator CompareValidator2;
-        
-        /// <summary>
-        /// listKamarUpdatePanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel listKamarUpdatePanel;
         
         /// <summary>
         /// btnCariKamar control.
@@ -119,5 +128,68 @@ namespace WismaTamu {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTotalHarga;
+        
+        /// <summary>
+        /// setujuPesananPlaceholder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder setujuPesananPlaceholder;
+        
+        /// <summary>
+        /// btnPesan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPesan;
+        
+        /// <summary>
+        /// hasilPesanan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder hasilPesanan;
+        
+        /// <summary>
+        /// nmrPesanan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label nmrPesanan;
+        
+        /// <summary>
+        /// namaPemesan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label namaPemesan;
+        
+        /// <summary>
+        /// alamatPemesan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label alamatPemesan;
+        
+        /// <summary>
+        /// kamarYangDipesan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.BulletedList kamarYangDipesan;
     }
 }

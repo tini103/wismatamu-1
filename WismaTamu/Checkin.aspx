@@ -51,7 +51,7 @@
                         <asp:Button Text="Detail Pesanan" runat="server" ID="btnDetail" OnClick="btnDetail_Click"/>
                     </td>
                     <td>
-                        <asp:Button Text="Checkin" runat="server" ID="btnCheckinDetail" OnClick="btnCheckinDetail_Click"/>
+                        <asp:Button Text="Checkin" runat="server" ID="btnCheckinDetail" OnClick="btnCheckinDetail_Click" CommandName="SegoGoreng"/>
                     </td>
                 </tr>
             
