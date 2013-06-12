@@ -29,7 +29,7 @@ namespace WismaTamu.Sistem
             byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
             StringBuilder sBuilder = new StringBuilder();
 
-            for (int i = 0; i < data.Length(); i++)
+            for (int i = 0; i < input.Length; i++)
             {
                 sBuilder.Append(data[i].ToString("x2"));
             }

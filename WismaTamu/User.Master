@@ -5,16 +5,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link rel="stylesheet" href="Style/columnal.css" />
-	<link rel="stylesheet" href="Style/style.css" />
+    <link rel="stylesheet" href="Style/style.css" />
+    <asp:PlaceHolder ID="cssRole" runat="server">
+        <% if(WismaTamu.Pengendali.PengendaliSesi.GetRolePengguna() == 0) { %>
+	    <link rel="stylesheet" href="Style/style-user.css" />
+        <% } else { %>
+        <link rel="stylesheet" href="Style/style-admin.css" />
+        <% } %>
+    </asp:PlaceHolder>
+    
+    
+    
     <title>
    <asp:ContentPlaceHolder ID="pagetitle" runat="server">
     </asp:ContentPlaceHolder>
     </title>
+   
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
         <div id="container" class="container">
 		    <div id="main" class="row">
 			    <div id="left-part" class="col_3 alpha">
@@ -27,10 +40,19 @@
 						    <br/>
 					    </p>
 					    <div id="login-form">
-						    <input type="text" name="userid" placeholder="ID Pengguna" />
-						    <input type="password" name="password" placeholder="Password" />
-						    <input type="button" value="Masuk ke Sistem" />
-						    <input type="button" value="Daftar ke Sistem" />
+                            <asp:PlaceHolder ID="loginPlaceholder" runat="server">
+                                <asp:TextBox ID="txtUserName" runat="server" placeholder="Nama pengguna"></asp:TextBox>
+                                <asp:TextBox ID="txtPassword" runat="server" placeholder="Kata sandi"></asp:TextBox>
+                                <asp:Button ID="btnLogin" runat="server" Text="Log Masuk" />
+                                <asp:Button ID="btnDaftar" runat="server" Text="Daftar Pengguna Baru" />
+                            </asp:PlaceHolder>
+                            <asp:PlaceHolder ID="userInfoPlaceholder" runat="server">
+                                Anda masuk sebagai : <asp:Label ID="lblLoggedUser" runat="server" Text="Label"></asp:Label>
+                                <asp:Button ID="btnGantiPassword" runat="server" Text="Ganti Kata Sandi" />
+                                <asp:Button ID="btnLogout" runat="server" Text="Keluar (Logout)" />
+                            </asp:PlaceHolder>
+
+						    
 					    </div>
 					    <center><strong>Menu Utama</strong></center>
 					    <div id="sidebar">
@@ -60,14 +82,14 @@
                                 <asp:ContentPlaceHolder ID="title" runat="server">
         
                                 </asp:ContentPlaceHolder>
-						    </h2>
+					    </h2>
 					    </div>
 				
 				    </div>
 				    <div id="Div1">
 					    <div id="content-content">
 						      <asp:ContentPlaceHolder ID="content" runat="server">
-        
+            
                               </asp:ContentPlaceHolder>
 					    </div>
 				
