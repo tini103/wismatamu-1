@@ -9,9 +9,9 @@ namespace WismaTamu.Pengendali
     public static class PengendaliKamar
     {
         private static WismaTamuDb db = new WismaTamuDb();
-        public static List<Kamar> LihatSemuaKamar(string namaKamar)
+        public static List<Kamar> LihatSemuaKamar(int wisma)
         {
-            return (db.Kamar.Where(x => x.KamarTersedia == true)).ToList();
+            return (db.Kamar.Where(x => x.Wisma == wisma)).ToList();
         }
 
         public static void SuntingDataKamar(Kamar dataBaru, int idKamar)
@@ -35,3 +35,4 @@ namespace WismaTamu.Pengendali
         }
     }
 }
+

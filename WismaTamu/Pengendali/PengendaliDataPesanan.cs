@@ -94,5 +94,11 @@ namespace WismaTamu.Pengendali
         {
             db.Pesanan.Add(dataPesananBaru);
         }
+
+        public static Pesanan Cari(string idAnggota, string tgl)
+        {
+            return db.Pesanan.SingleOrDefault(
+                        x => x.AnggotaPemesanId == idAnggota && x.TanggalCheckin.ToString() == tgl);
+        }
     }
 }
