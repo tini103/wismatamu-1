@@ -116,6 +116,7 @@
     </Compile>
     <Compile Include="KelolaDataKamar.aspx.cs">
       <DependentUpon>KelolaDataKamar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="KelolaDataKamar.aspx.designer.cs">
       <DependentUpon>KelolaDataKamar.aspx</DependentUpon>
