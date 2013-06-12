@@ -11,14 +11,20 @@ namespace WismaTamu
 {
     public partial class PesanKamarAnggota : System.Web.UI.Page
     {
+
         private WismaTamuDb db = new WismaTamuDb();
         private List<Kamar> kamarTersedia = new List<Kamar>();
+
+        // Variabel untuk view sate
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 listKamarPlaceholder.Visible = false;
+                setujuPesananPlaceholder.Visible = false;
+                btnPesan.Visible = false;
             }
             
         }
@@ -36,11 +42,12 @@ namespace WismaTamu
 
                 //var kamarTersedia = PengendaliDataPesanan.CekPesananRentangTanggal(tanggalCheckIn, tanggalCheckOut).ToList();
                 // Mocking object testing
-                
+                /*
                 kamarTersedia.Add(new Kamar { HargaPerMalam = 200000, JenisKamar = 1, NamaKamar = "Kamar 1", Wisma = 0, KapasitasKamar = 2, IdKamar = 1, KamarTersedia = true });
                 kamarTersedia.Add(new Kamar { HargaPerMalam = 200000, JenisKamar = 1, NamaKamar = "Kamar 2", Wisma = 0, KapasitasKamar = 2, IdKamar = 2, KamarTersedia = true });
                 kamarTersedia.Add(new Kamar { HargaPerMalam = 200000, JenisKamar = 1, NamaKamar = "Kamar 3", Wisma = 0, KapasitasKamar = 2, IdKamar = 3, KamarTersedia = true });
-
+                */
+                kamarTersedia.AddRange(PengendaliDataPesanan.CekPesananRentangTanggal(tanggalCheckIn, tanggalCheckOut));
 
                 if (kamarTersedia.Count > 0)
                 {
@@ -48,7 +55,7 @@ namespace WismaTamu
                     rptKamar.DataSource = kamarTersedia;
                     rptKamar.DataBind();
                     lblStatus.Visible = false;
-
+                    setujuPesananPlaceholder.Visible = true;
                 }
                 else
                 {
@@ -66,15 +73,84 @@ namespace WismaTamu
 
         public void chkKamarDipilih_CheckedChanged(object sender, EventArgs e)
         {
-            // Not implemented
-            //double hargaTotal = 0.0; 
-            //foreach (RepeaterItem item in rptKamar.Items)
-            //{
-            //    // Cek setiap checkbox, dan hitung harga totalnya
-            //    CheckBox chk = (CheckBox) item.FindControl("chkKamarDipilih");
+            double hargaTotal = 0.0;
+            int countChecked = 0;
+            foreach (RepeaterItem item in rptKamar.Items)
+            {
+                // Cek setiap checkbox, dan hitung harga totalnya
+                CheckBox chk = (CheckBox)item.FindControl("chkKamarDipilih");
+                Label lbl = (Label)item.FindControl("lblHargaPerItem");
 
-            //    hargaTotal += kamarTersedia[Int16.Parse(chk.Text)].HargaPerMalam;
-            //}
+                if (chk.Checked == true)
+                {
+                    hargaTotal += Double.Parse(lbl.Text);
+                    countChecked += 1;
+                }
+            }
+
+            if (countChecked > 0)
+            {
+                btnPesan.Visible = true;
+            }
+            else
+            {
+                btnPesan.Visible = false;
+            }
+
+            hargaTotal *= ((TimeSpan)ViewState["selisihTanggal"]).Days;
+
+            lblTotalHarga.Text = "Rp. " + hargaTotal.ToString();
+        }
+
+        protected void rptKamar_ItemCreated(object sender, RepeaterItemEventArgs e)
+        {
+            // Async Postback Register for Checkbox
+            // Not implemented yet
+            //var control = e.Item.FindControl("chkKamarDipilih");
+            //AsyncPostBackTrigger controlAsync = new AsyncPostBackTrigger();
+            //controlAsync.ControlID = control;
+
+        }
+
+        protected void btnPesan_Click(object sender, EventArgs e)
+        {
+            
+
+            listKamarPlaceholder.Visible = false;
+            btnCariKamar.Visible = false;
+            pilihTanggalPlaceholder.Visible = false;
+            hasilPesanan.Visible = true;
+
+            // Lakukan proses pemesanan secara langsung
+            // Buat list kamar yang dipesan
+            Pesanan newPesanan = new Pesanan
+            {
+                TanggalCheckin = DateTime.Parse(tglCheckIn.Text),
+                TanggalCheckout = DateTime.Parse(tglCheckOut.Text),
+                TanggalBayarDpMaks = DateTime.Now.AddDays(5),   // Bawaan maksimal 3 hari untuk sementara
+                StatusPembayaran = 0,
+                StatusPenginapan = 0,
+                AnggotaPemesanId = PengendaliSesi.GetIdPengguna(),
+                //BiayaPemesanan = biayaPemesanan,
+                //BiayaPiutang = biayaPemesanan,
+
+
+            };
+        }
+
+        protected void tglCheckIn_TextChanged(object sender, EventArgs e)
+        {
+            listKamarPlaceholder.Visible = false;
+            TimeSpan selisihTanggal = DateTime.Parse(tglCheckOut.Text) - DateTime.Parse(tglCheckIn.Text);
+            ViewState["selisihTanggal"] = selisihTanggal;
+
+        }
+
+        protected void tglCheckOut_TextChanged(object sender, EventArgs e)
+        {
+            listKamarPlaceholder.Visible = false;
+            TimeSpan selisihTanggal = DateTime.Parse(tglCheckOut.Text) - DateTime.Parse(tglCheckIn.Text);
+            ViewState["selisihTanggal"] = selisihTanggal;
         }
     }
 }

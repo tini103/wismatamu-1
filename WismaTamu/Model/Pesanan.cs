@@ -19,7 +19,7 @@ namespace WismaTamu.Model
         [ForeignKey("AnggotaPemesanId")]
         public virtual Anggota AnggotaPemesan { get; set; }
 
-        [Required]
+        //[Required] --> Jangan required dulu untuk proses masukan data -- Wira
         public int IdPesananKamar { get; set; }
 
         [ForeignKey("IdPesananKamar")]
