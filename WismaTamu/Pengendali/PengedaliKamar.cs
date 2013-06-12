@@ -7,7 +7,7 @@ using WismaTamu.Sistem;
 
 namespace WismaTamu.Pengendali
 {
-    public class PengedaliKamar
+    public static class PengedaliKamar
     {
         private WismaTamuDb db = new WismaTamuDb();
 

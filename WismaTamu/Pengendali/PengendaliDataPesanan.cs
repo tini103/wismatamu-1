@@ -7,11 +7,11 @@ using WismaTamu.Sistem;
 
 namespace WismaTamu.Pengendali
 {
-    public class PengendaliDataPesanan
+    public static class PengendaliDataPesanan
     {
-        private WismaTamuDb db = new WismaTamuDb();
+        private static WismaTamuDb db = new WismaTamuDb();
 
-        public List<Pesanan> CekPesananRentangTanggal(DateTime tanggalCheckin, DateTime tanggalCheckout)
+        public static List<Pesanan> CekPesananRentangTanggal(DateTime tanggalCheckin, DateTime tanggalCheckout)
         {
             List<Pesanan> listPesanan = new List<Pesanan>();
             foreach (var x in db.Pesanan.Where(x => x.TanggalCheckin >= tanggalCheckin && x.TanggalCheckout <= tanggalCheckout && x.StatusPembayaran > 0))
@@ -21,31 +21,31 @@ namespace WismaTamu.Pengendali
             return listPesanan;
         }
 
-        public bool CekStatusKamarDipilih(int inputID)
+        public static bool CekStatusKamarDipilih(int inputID)
         {
             var kamar = db.Kamar.SingleOrDefault(x => x.IdKamar == inputID);
             return kamar.KamarTersedia;
         }
 
-        public void CheckinPesanan(int inputID)
+        public static void CheckinPesanan(int inputID)
         {
             var pesanan = db.Pesanan.SingleOrDefault(x => x.IdPesanan == inputID);
             pesanan.StatusPenginapan = 1;
         }
 
-        public void CheckoutPesanan(int inputID)
+        public static void CheckoutPesanan(int inputID)
         {
             var pesanan = db.Pesanan.SingleOrDefault(x => x.IdPesanan == inputID);
             pesanan.StatusPenginapan = 2;
         }
 
-        public void EditPesananMember(int inputID, Pesanan dataPesananBaru)
+        public static void EditPesananMember(int inputID, Pesanan dataPesananBaru)
         {
             var pesanan = db.Pesanan.SingleOrDefault(x => x.IdPesanan == inputID);
             pesanan = dataPesananBaru;
         }
 
-        public List<Pesanan> LihatPesananCheckinHariIni()
+        public static List<Pesanan> LihatPesananCheckinHariIni()
         {
             List<Pesanan> listPesanan = new List<Pesanan>();
             foreach (var pesanan in db.Pesanan.Where(x => x.TanggalCheckin == DateTime.Now))
@@ -55,7 +55,7 @@ namespace WismaTamu.Pengendali
             return listPesanan;
         }
 
-        public List<Pesanan> LihatPesananCheckoutHariIni()
+        public static List<Pesanan> LihatPesananCheckoutHariIni()
         {
             List<Pesanan> listPesanan = new List<Pesanan>();
             foreach (var pesanan in db.Pesanan.Where(x => x.TanggalCheckout == DateTime.Now))
@@ -65,12 +65,12 @@ namespace WismaTamu.Pengendali
             return listPesanan;
         }
 
-        public Pesanan LihatPesananKode(int inputID)
+        public static Pesanan LihatPesananKode(int inputID)
         {
             return db.Pesanan.SingleOrDefault(x => x.IdPesanan == inputID);
         }
 
-        public List<Pesanan> LihatPesananMember(string idAnggota)
+        public static List<Pesanan> LihatPesananMember(string idAnggota)
         {
             List<Pesanan> listPesanan = new List<Pesanan>();
             foreach (var pesanan in db.Pesanan.Where(x => x.AnggotaPemesanId == idAnggota))
@@ -80,7 +80,7 @@ namespace WismaTamu.Pengendali
             return listPesanan;
         }
 
-        public void TambahPesananBaru(Pesanan dataPesananBaru)
+        public static void TambahPesananBaru(Pesanan dataPesananBaru)
         {
             db.Pesanan.Add(dataPesananBaru);
         }
