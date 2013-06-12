@@ -18,8 +18,8 @@
             <asp:Label ID="Label2" runat="server" Text="Untuk tangal Pemesanan :"></asp:Label>&nbsp&nbsp
             <asp:TextBox ID="tanggalPesan" runat="server" Width="191px"></asp:TextBox>
                 <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server"  TargetControlID="tanggalPesan" Format="dd/MM/yyyy" />
-        </p>
-        <asp:PlaceHolder ID="listDataTransaksi" runat="server">
+            <%-- aku g tau repeaternya gmn --%>
+        </p><asp:PlaceHolder ID="listDataTransaksi" runat="server">
         <div id="popup">
             <div id="inner-popup">
                
@@ -46,5 +46,6 @@
             </div>
         </div>
     </asp:PlaceHolder>
+        
     </div>
 </asp:Content>
