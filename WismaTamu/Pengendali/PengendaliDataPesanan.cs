@@ -90,5 +90,18 @@ namespace WismaTamu.Pengendali
             return db.Pesanan.SingleOrDefault(
                         x => x.AnggotaPemesanId == idAnggota && x.TanggalCheckin.ToString() == tgl);
         }
+
+        public static int SetBuktiPembayaran(string idAnggota)
+        {
+            var data = db.Pesanan.SingleOrDefault(
+                           x => x.AnggotaPemesanId == idAnggota);
+
+            if (data.BuktiTransfer != "")
+            {
+                return 1;
+            }
+            else
+                return 0;
+        }
     }
 }
