@@ -26,25 +26,25 @@
     <br/>
     <h4><strong> Daftar tamu yang checkin hari ini </strong></h4>
     <h5> <asp:Label ID="lblTanggal" runat="server" /> </h5>
-    <asp:GridView ID="grid" runat="server" BorderColor="Yellow">        
-    </asp:GridView>
-
-    <!--<asp:Repeater runat="server" ItemType="WismaTamu.Model.Anggota" ID="repeater1">
+    <!--<asp:GridView ID="grid" runat="server" BorderColor="Yellow">        
+    </asp:GridView>-->
+    <table>
+    <asp:Repeater runat="server" ItemType="WismaTamu.Model.Anggota" ID="repeater1">
         <ItemTemplate>
-            <table>
+            
                 <tr>
                     <td>
                         <asp:Label ID="labelIdentitas" Text="<%# Item.IdAnggota %>" runat="server"/>
                         <asp:Label ID="labelDummy" Text=" - " runat="server"/>
-                        <!--<%
-                            //string text = "Pemesanan Item.Pesanan.Count kamar";
+                        <%
+                            string text = "Pemesanan Item.Pesanan.Count kamar";
                         %>
                         <asp:Label ID="labelAnggota" Text="<%//# //Item.AnggotaPemesan.NamaAnggota %>" runat="server"/>
                         <br/>
                         <asp:Label ID="jumlahPesan" Text="<% text %>" runat="server" />
                         <br />
                         <%
-                            //text = "Tanggal Checkout: " + DateTime.Now.ToString();
+                            text = "Tanggal Checkout: " + DateTime.Now.ToString();
                         %>
                         <asp:Label ID="labelCheckout" Text="<% text %>" runat="server" />
                     </td>
@@ -55,7 +55,8 @@
                         <asp:Button Text="Checkin" runat="server" ID="btnCheckinDetail" OnClick="btnCheckinDetail_Click"/>
                     </td>
                 </tr>
-            </table>
+            
         </ItemTemplate>
-    </asp:Repeater>-->
+    </asp:Repeater>
+     </table>
 </asp:Content>

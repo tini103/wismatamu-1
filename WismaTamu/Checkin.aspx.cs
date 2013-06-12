@@ -17,8 +17,8 @@ namespace WismaTamu
             {
                 lblTanggal.Text = DateTime.Now.ToString();
                 //grid.DataSource = PengendaliDataPesanan.LihatPesananCheckinHariIni().ToList();
-                grid.DataSource = PengendaliDataAnggota.LihatSemuaAnggota().ToList();
-                grid.DataBind();
+                repeater1.DataSource = PengendaliDataAnggota.LihatSemuaAnggota().ToList();
+                repeater1.DataBind();
             }
         }
         protected void btCari_Click(object sender, EventArgs e)
