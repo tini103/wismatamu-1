@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using WismaTamu.Model;
+using WismaTamu.Pengendali;
 
 namespace WismaTamu
 {
@@ -21,6 +22,11 @@ namespace WismaTamu
 
         protected void btnCariKamar_Click(object sender, EventArgs e)
         {
+            // Lakukan pencarian data kamar yang tersedia
+            try
+            {
+                var kamarTersedia = PengendaliDataPesanan.
+            }
             listKamarPlaceholder.Visible = true;
         }
     }
