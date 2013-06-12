@@ -77,6 +77,8 @@
     <Content Include="Images\kertas.png" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\luv.png" />
+    <Content Include="KelolaDataTransaksi.aspx" />
+    <Content Include="KonfirmasiPembayaran.aspx" />
     <Content Include="ManageMember.aspx" />
     <Content Include="PesanKamarAnggota.aspx" />
     <Content Include="Style\build.css" />
@@ -99,6 +101,20 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="KelolaDataTransaksi.aspx.cs">
+      <DependentUpon>KelolaDataTransaksi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KelolaDataTransaksi.aspx.designer.cs">
+      <DependentUpon>KelolaDataTransaksi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KonfirmasiPembayaran.aspx.cs">
+      <DependentUpon>KonfirmasiPembayaran.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KonfirmasiPembayaran.aspx.designer.cs">
+      <DependentUpon>KonfirmasiPembayaran.aspx</DependentUpon>
     </Compile>
     <Compile Include="ManageMember.aspx.cs">
       <DependentUpon>ManageMember.aspx</DependentUpon>
