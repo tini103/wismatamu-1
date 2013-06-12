@@ -31,7 +31,7 @@ namespace WismaTamu
 
         private void btnDaftar_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Response.Redirect("/PendaftaranAnggota.aspx");
         }
 
         void btnLogin_Click(object sender, EventArgs e)
