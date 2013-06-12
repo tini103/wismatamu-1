@@ -28,7 +28,7 @@
                         <table>
                             <tr>
                                 <td>
-                                    <asp:Label ID="LabelIdentisasA" runat="server" Text="<%# Item.AnggotaPemesanId %>"></asp:Label>
+                                    <asp:Label ID="LabelIdentisas" runat="server" Text="<%# Item.AnggotaPemesanId %>"></asp:Label>
                                     <asp:Label ID="LabelPesanan" runat="server" Text="<%# Item.IdPesanan %>"></asp:Label>
                                     <asp:Label ID="LabelCheckin" runat="server" Text="<%# Item.TanggalCheckin %>"></asp:Label>
                                     <asp:Label ID="LabelCheckOut" runat="server" Text="<%# Item.TanggalCheckout %>"></asp:Label>
