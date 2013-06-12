@@ -18,7 +18,7 @@ namespace WismaTamu
         protected void btCari_Click(object sender, EventArgs e)
         {
             PengendaliDataPesanan pengendaliDataPesanan = new PengendaliDataPesanan();
-            pengendaliDataPesanan.LihatPesananKode(ints.Parse(tbCari.Text));
+            pengendaliDataPesanan.LihatPesananKode(Int16.Parse(tbCari.Text));
         }
     }
 }

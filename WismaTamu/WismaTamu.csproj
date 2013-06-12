@@ -79,6 +79,7 @@
     <Content Include="KelolaDataTransaksi.aspx" />
     <Content Include="KonfirmasiPembayaran.aspx" />
     <Content Include="ManageMember.aspx" />
+    <Content Include="PendaftaranAnggota.aspx" />
     <Content Include="PesanKamarAnggota.aspx" />
     <Content Include="Style\build.css" />
     <Content Include="Style\columnal.css" />
@@ -92,6 +93,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Checkin.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Checkin.aspx.designer.cs">
+      <DependentUpon>Checkin.aspx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -131,7 +138,17 @@
     <Compile Include="Model\Petugas.cs" />
     <Compile Include="Model\WismaTamuContext.cs" />
     <Compile Include="Model\WismaTamuDb.cs" />
+    <Compile Include="PendaftaranAnggota.aspx.cs">
+      <DependentUpon>PendaftaranAnggota.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PendaftaranAnggota.aspx.designer.cs">
+      <DependentUpon>PendaftaranAnggota.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pengendali\PengedaliKamar.cs" />
     <Compile Include="Pengendali\PengendaliAnggota.cs" />
+    <Compile Include="Pengendali\PengendaliDataAnggota.cs" />
+    <Compile Include="Pengendali\PengendaliDataPesanan.cs" />
     <Compile Include="Pengendali\PengendaliKamar.cs" />
     <Compile Include="Pengendali\PengendaliPetugas.cs" />
     <Compile Include="Pengendali\PengendaliSesi.cs" />

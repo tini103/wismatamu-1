@@ -6,7 +6,7 @@ using WismaTamu.Model;
 
 namespace WismaTamu.Pengendali
 {
-    public class PengendaliAnggota
+    public static class PengendaliAnggota
     {
         private static WismaTamuDb db = new WismaTamuDb();
         public static List<Anggota> LihatSemuaAnggota(string idAnggota)
