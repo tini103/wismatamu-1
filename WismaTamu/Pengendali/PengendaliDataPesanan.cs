@@ -16,7 +16,7 @@ namespace WismaTamu.Pengendali
             List<Kamar> listKamarDilarangDipesan = new List<Kamar>();
 
             // Cek 
-            foreach (var pesanan in db.Pesanan.Where(x => tanggalCheckin < x.TanggalCheckin && tanggalCheckout > x.TanggalCheckout && x.StatusPembayaran > 0))
+            foreach (var pesanan in db.Pesanan.Where(x => ((tanggalCheckin <= x.TanggalCheckin && tanggalCheckout >= x.TanggalCheckout) || (tanggalCheckin <= x.TanggalCheckout && x.TanggalCheckin <= tanggalCheckin ) || (x.TanggalCheckin <= tanggalCheckout && tanggalCheckout <= x.TanggalCheckout)) && x.StatusPembayaran > 0))
             {
                 // Ambil kamar dipesan untuk pesanan tersebut
                 var kamarDipesan = db.PesananKamar.Where(x => x.IdPesanan == pesanan.IdPesanan);
@@ -40,7 +40,6 @@ namespace WismaTamu.Pengendali
                     listKamar.Add(kamar);
                 }
             }
-
             return listKamar;
         }
 
@@ -105,10 +104,26 @@ namespace WismaTamu.Pengendali
             return listPesanan;
         }
 
-        public static void TambahPesananBaru(Pesanan dataPesananBaru)
+        public static int TambahPesananBaru(Pesanan dataPesananBaru, List<Kamar> listKamar)
         {
+            dataPesananBaru.StatusPembayaran = 0;
+            foreach(var pesanan in db.Pesanan.Where(x=> x.StatusPembayaran == -1))
+            {
+                var pesananBelumFix = db.PesananKamar.Where(x => x.IdPesanan == pesanan.IdPesanan);
+                foreach (PesananKamar pesaananKamar in pesananBelumFix)
+                {
+                    foreach (Kamar kamar in listKamar)
+                    {
+                        if (kamar == pesaananKamar.Kamar)
+                        {
+                            dataPesananBaru.StatusPembayaran = -1;
+                        }
+                    }
+                }
+            }
             db.Pesanan.Add(dataPesananBaru);
             db.SaveChanges();
+            return dataPesananBaru.IdPesanan;
         }
 
         public static List<Pesanan> Cari(string idAnggota, DateTime tgl)

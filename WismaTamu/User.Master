@@ -51,20 +51,18 @@
                                 <asp:Button ID="btnKelolaAkun" runat="server" Text="Kelola Akun" />
                                 <asp:Button ID="btnLogout" runat="server" Text="Keluar (Logout)" />
                             </asp:PlaceHolder>
-
-						    
 					    </div>
 					    <center><strong>Menu Utama</strong></center>
 					    <div id="sidebar">
 						    <div class="sidebar-item">
-							    <img src="images/luv.png" class="mobile-hide">
+							    <img src="images/luv.png" class="mobile-hide"/>
 							    <p>
 								    <strong>Pencarian Kamar</strong>
 								    Lakukan pencarian dan pemesanan kamar pada tanggal tertentu sesuai keinginan.
 							    </p>
 						    </div>
 						    <div class="sidebar-item" >
-							    <img src="images/kertas.png" class="mobile-hide">
+							    <img src="images/kertas.png" class="mobile-hide"/>
 							    <p>
 								    <strong>Konfirmasi Pembayaran</strong>
 								    Lakukan konfirmasi pembayaran pesanan yang sudah Anda lakukan.
