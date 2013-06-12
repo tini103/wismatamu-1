@@ -38,10 +38,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\packages\AjaxControlToolkit.7.0607\lib\40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\AjaxControlToolkit.7.0607\lib\40\SanitizerProviders\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SanitizerProviders">
+      <HintPath>..\packages\AjaxControlToolkit.7.0607\lib\40\SanitizerProviders\SanitizerProviders.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="System.Web.DynamicData" />
@@ -69,9 +78,12 @@
     <Content Include="Images\logo.png" />
     <Content Include="Images\luv.png" />
     <Content Include="ManageMember.aspx" />
+    <Content Include="PesanKamarAnggota.aspx" />
     <Content Include="Style\build.css" />
     <Content Include="Style\columnal.css" />
     <Content Include="Style\custom.css" />
+    <Content Include="Style\style-admin.css" />
+    <Content Include="Style\style-user.css" />
     <Content Include="Style\style.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -95,8 +107,24 @@
     <Compile Include="ManageMember.aspx.designer.cs">
       <DependentUpon>ManageMember.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Model\Anggota.cs" />
+    <Compile Include="Model\Kamar.cs" />
     <Compile Include="Model\Member.cs" />
+    <Compile Include="Model\Pesanan.cs" />
+    <Compile Include="Model\PesananKamar.cs" />
+    <Compile Include="Model\Petugas.cs" />
     <Compile Include="Model\WismaTamuContext.cs" />
+    <Compile Include="Model\WismaTamuDb.cs" />
+    <Compile Include="Pengendali\PengendaliPetugas.cs" />
+    <Compile Include="Pengendali\PengendaliSesi.cs" />
+    <Compile Include="PesanKamarAnggota.aspx.cs">
+      <DependentUpon>PesanKamarAnggota.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PesanKamarAnggota.aspx.designer.cs">
+      <DependentUpon>PesanKamarAnggota.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sistem\Md5Helper.cs" />
     <Compile Include="User.Master.cs">
       <DependentUpon>User.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
