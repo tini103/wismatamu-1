@@ -36,6 +36,7 @@ namespace WismaTamu.Pengendali
         public static bool CekAnggota(string idPengguna,string kataSandiMD5)
         {
  	        // Cek data anggota apakah ada atau tidak
+            kataSandiMD5 = Md5Helper.KonversiKeMd5(kataSandiMD5);
             var dataAnggota = db.Anggota.Where(x => x.IdAnggota == idPengguna && x.PasswordAnggota == kataSandiMD5);
             if (dataAnggota.Count() == 1)
             {

@@ -48,5 +48,16 @@ namespace WismaTamu.Model
 
         [Required]
         public DateTime TanggalCheckout { get; set; }
+
+        public int HitungJumlahKamarDipesan()
+        {
+            WismaTamuDb db = new WismaTamuDb();
+            if (KamarDipesan != null)
+            {
+                return db.PesananKamar.Where(x => x.IdPesanan == IdPesanan).Count(); 
+            }
+
+            return 0;
+        }
     }
 }

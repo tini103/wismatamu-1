@@ -98,6 +98,7 @@ namespace WismaTamu
             }
 
             hargaTotal *= ((TimeSpan)ViewState["selisihTanggal"]).Days;
+            ViewState["hargaTotal"] = hargaTotal;
 
             lblTotalHarga.Text = "Rp. " + hargaTotal.ToString();
         }
@@ -116,13 +117,24 @@ namespace WismaTamu
         {
             
 
-            listKamarPlaceholder.Visible = false;
-            btnCariKamar.Visible = false;
-            pilihTanggalPlaceholder.Visible = false;
-            hasilPesanan.Visible = true;
+            
 
             // Lakukan proses pemesanan secara langsung
             // Buat list kamar yang dipesan
+            List<PesananKamar> kamarDipesan = new List<PesananKamar>();
+
+            foreach (RepeaterItem item in rptKamar.Items)
+            {
+                // Cek setiap checkbox, dan hitung harga totalnya
+                CheckBox chk = (CheckBox)item.FindControl("chkKamarDipilih");
+
+                if (chk.Checked == true)
+                {
+                    kamarDipesan.Add(new PesananKamar { IdKamar = Int16.Parse(chk.Text) });
+                }
+            }
+
+            // Buat data pesanan
             Pesanan newPesanan = new Pesanan
             {
                 TanggalCheckin = DateTime.Parse(tglCheckIn.Text),
@@ -131,11 +143,23 @@ namespace WismaTamu
                 StatusPembayaran = 0,
                 StatusPenginapan = 0,
                 AnggotaPemesanId = PengendaliSesi.GetIdPengguna(),
-                //BiayaPemesanan = biayaPemesanan,
-                //BiayaPiutang = biayaPemesanan,
-
-
+                BiayaPemesanan = (double) ViewState["biayaPesanan"],
+                BiayaPiutang = (double)ViewState["biayaPesanan"]
             };
+
+            // Proses pemesanan, ambil id nya
+            // Nunggu commit dari Indra untuk implementasi pasti dari TambahPesananBaru
+            //int idPesanan = PengendaliDataPesanan.TambahPesananBaru(newPesanan);
+
+
+            // Tampilkan tanda jadi pesanan
+            listKamarPlaceholder.Visible = false;
+            btnCariKamar.Visible = false;
+            pilihTanggalPlaceholder.Visible = false;
+            hasilPesanan.Visible = true;
+
+            // Tampilkan isi data-datanya
+
         }
 
         protected void tglCheckIn_TextChanged(object sender, EventArgs e)

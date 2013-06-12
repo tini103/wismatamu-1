@@ -111,10 +111,10 @@ namespace WismaTamu.Pengendali
             db.SaveChanges();
         }
 
-        public static Pesanan Cari(string idAnggota, string tgl)
+        public static List<Pesanan> Cari(string idAnggota, DateTime tgl)
         {
-            return db.Pesanan.SingleOrDefault(
-                        x => x.AnggotaPemesanId == idAnggota && x.TanggalCheckin.ToString() == tgl);
+            return db.Pesanan.Where(
+                        x => x.AnggotaPemesanId == idAnggota && x.TanggalCheckin == tgl).ToList();
         }
 
         public static int SetBuktiPembayaran(string idAnggota)

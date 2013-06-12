@@ -32,7 +32,7 @@ namespace WismaTamu
             btnLogout.Click += btnLogout_Click;
         }
 
-        private void btnLogout_Click(object sender, EventArgs e)
+        protected void btnLogout_Click(object sender, EventArgs e)
         {
             // Lakukan proses logout
             PengendaliSesi.LakukanLogout();
@@ -41,12 +41,12 @@ namespace WismaTamu
             Response.Redirect("/Default.aspx");
         }
 
-        private void btnDaftar_Click(object sender, EventArgs e)
+        protected void btnDaftar_Click(object sender, EventArgs e)
         {
             Response.Redirect("/PendaftaranAnggota.aspx");
         }
 
-        void btnLogin_Click(object sender, EventArgs e)
+        protected void btnLogin_Click(object sender, EventArgs e)
         {
             // Lakukan proses login
             bool hasilLogin = PengendaliSesi.LakukanLogin(txtUserName.Text, txtPassword.Text);
