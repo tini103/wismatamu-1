@@ -11,16 +11,26 @@ namespace WismaTamu.Pengendali
     {
         private static WismaTamuDb db = new WismaTamuDb();
 
-        public static List<Pesanan> CekPesananRentangTanggal(DateTime tanggalCheckin, DateTime tanggalCheckout)
+        public static void CekPesananRentangTanggal(DateTime tanggalCheckin, DateTime tanggalCheckout)
         {
             List<Pesanan> listPesanan = new List<Pesanan>();
-            foreach (var x in db.Pesanan.Where(x => x.TanggalCheckin >= tanggalCheckin && x.TanggalCheckout <= tanggalCheckout && x.StatusPembayaran > 0))
+            foreach (var pesanan in db.Pesanan.Where(x => tanggalCheckin < x.TanggalCheckin && tanggalCheckout > x.TanggalCheckout && x.StatusPembayaran > 0))
             {
-                listPesanan.Add(x);
+                listPesanan.Add(pesanan);
             }
-            return listPesanan;
+            HasilPesananKamar(listPesanan);
         }
 
+        public static List<Kamar> HasilPesananKamar(List<Pesanan> listPesanan)
+        {
+            List<Kamar> listPesananKamar = new List<Kamar>();
+            foreach (var pesananKamar in listPesanan)
+            {
+                listPesananKamar.Add(pesananKamar.KamarDipesan.Kamar);
+            }
+            return listPesananKamar;
+        }
+       
         public static bool CekStatusKamarDipilih(int inputID)
         {
             var kamar = db.Kamar.SingleOrDefault(x => x.IdKamar == inputID);

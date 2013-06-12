@@ -40,6 +40,15 @@ namespace WismaTamu {
         protected global::System.Web.UI.WebControls.Label lblTanggal;
         
         /// <summary>
+        /// grid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grid;
+        
+        /// <summary>
         /// repeater1 control.
         /// </summary>
         /// <remarks>
