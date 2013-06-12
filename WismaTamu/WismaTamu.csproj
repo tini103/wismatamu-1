@@ -80,9 +80,12 @@
     <Content Include="KelolaDataTransaksi.aspx" />
     <Content Include="KonfirmasiPembayaran.aspx" />
     <Content Include="ManageMember.aspx" />
+    <Content Include="PesanKamarAnggota.aspx" />
     <Content Include="Style\build.css" />
     <Content Include="Style\columnal.css" />
     <Content Include="Style\custom.css" />
+    <Content Include="Style\style-admin.css" />
+    <Content Include="Style\style-user.css" />
     <Content Include="Style\style.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -120,8 +123,24 @@
     <Compile Include="ManageMember.aspx.designer.cs">
       <DependentUpon>ManageMember.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Model\Anggota.cs" />
+    <Compile Include="Model\Kamar.cs" />
     <Compile Include="Model\Member.cs" />
+    <Compile Include="Model\Pesanan.cs" />
+    <Compile Include="Model\PesananKamar.cs" />
+    <Compile Include="Model\Petugas.cs" />
     <Compile Include="Model\WismaTamuContext.cs" />
+    <Compile Include="Model\WismaTamuDb.cs" />
+    <Compile Include="Pengendali\PengendaliPetugas.cs" />
+    <Compile Include="Pengendali\PengendaliSesi.cs" />
+    <Compile Include="PesanKamarAnggota.aspx.cs">
+      <DependentUpon>PesanKamarAnggota.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PesanKamarAnggota.aspx.designer.cs">
+      <DependentUpon>PesanKamarAnggota.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sistem\Md5Helper.cs" />
     <Compile Include="User.Master.cs">
       <DependentUpon>User.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
