@@ -29,9 +29,8 @@
     <!--<asp:GridView ID="grid" runat="server" BorderColor="Yellow">        
     </asp:GridView>-->
     <table>
-    <asp:Repeater runat="server" ItemType="WismaTamu.Model.Anggota" ID="repeater1">
-        <ItemTemplate>
-            
+    <asp:Repeater runat="server" ItemType="WismaTamu.Model.Pesanan" ID="repeater1">
+        <ItemTemplate>            
                 <tr>
                     <td>
                         <asp:Label ID="labelIdentitas" Text="<%# Item.IdAnggota %>" runat="server"/>
@@ -39,7 +38,7 @@
                         <%
                             string text = "Pemesanan Item.Pesanan.Count kamar";
                         %>
-                        <asp:Label ID="labelAnggota" Text="<%//# //Item.AnggotaPemesan.NamaAnggota %>" runat="server"/>
+                        <asp:Label ID="labelAnggota" Text="<%# Item.AnggotaPemesan.NamaAnggota %>" runat="server"/>
                         <br/>
                         <asp:Label ID="jumlahPesan" Text="<% text %>" runat="server" />
                         <br />
