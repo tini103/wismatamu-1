@@ -38,10 +38,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\packages\AjaxControlToolkit.7.0607\lib\40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\AjaxControlToolkit.7.0607\lib\40\SanitizerProviders\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SanitizerProviders">
+      <HintPath>..\packages\AjaxControlToolkit.7.0607\lib\40\SanitizerProviders\SanitizerProviders.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="System.Web.DynamicData" />
@@ -68,6 +77,8 @@
     <Content Include="Images\kertas.png" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\luv.png" />
+    <Content Include="KelolaDataTransaksi.aspx" />
+    <Content Include="KonfirmasiPembayaran.aspx" />
     <Content Include="ManageMember.aspx" />
     <Content Include="Style\build.css" />
     <Content Include="Style\columnal.css" />
@@ -87,6 +98,20 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="KelolaDataTransaksi.aspx.cs">
+      <DependentUpon>KelolaDataTransaksi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KelolaDataTransaksi.aspx.designer.cs">
+      <DependentUpon>KelolaDataTransaksi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KonfirmasiPembayaran.aspx.cs">
+      <DependentUpon>KonfirmasiPembayaran.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KonfirmasiPembayaran.aspx.designer.cs">
+      <DependentUpon>KonfirmasiPembayaran.aspx</DependentUpon>
     </Compile>
     <Compile Include="ManageMember.aspx.cs">
       <DependentUpon>ManageMember.aspx</DependentUpon>
