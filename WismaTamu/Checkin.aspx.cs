@@ -13,12 +13,12 @@ namespace WismaTamu
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lblTanggal.Text = DateTime.Now.ToString();
         }
         protected void btCari_Click(object sender, EventArgs e)
         {
-            PengendaliDataPesanan pengendaliDataPesanan = new PengendaliDataPesanan();
-            pengendaliDataPesanan.LihatPesananKode(Int16.Parse(tbCari.Text));
+            //PengendaliDataPesanan pengendaliDataPesanan;
+            PengendaliDataPesanan.LihatPesananKode(Int16.Parse(tbCari.Text));
         }
     }
 }

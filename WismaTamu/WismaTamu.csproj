@@ -71,6 +71,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Checkin.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Images\kertas.png" />
@@ -95,9 +96,10 @@
   <ItemGroup>
     <Compile Include="Checkin.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Checkin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Checkin.aspx.designer.cs">
-      <DependentUpon>Checkin.aspx.cs</DependentUpon>
+      <DependentUpon>Checkin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -146,7 +148,6 @@
       <DependentUpon>PendaftaranAnggota.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pengendali\PengedaliKamar.cs" />
-    <Compile Include="Pengendali\PengendaliAnggota.cs" />
     <Compile Include="Pengendali\PengendaliDataAnggota.cs" />
     <Compile Include="Pengendali\PengendaliDataPesanan.cs" />
     <Compile Include="Pengendali\PengendaliKamar.cs" />
