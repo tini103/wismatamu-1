@@ -20,10 +20,11 @@ namespace WismaTamu.Model
         public virtual Anggota AnggotaPemesan { get; set; }
 
         //[Required] --> Jangan required dulu untuk proses masukan data -- Wira
-        public int IdPesananKamar { get; set; }
+        // Ini sepertinya tidak perlu, CMIIW -- Wira
+        //public int IdPesananKamar { get; set; }
 
-        [ForeignKey("IdPesananKamar")]
-        public PesananKamar KamarDipesan { get; set; }
+        //[ForeignKey("IdPesananKamar")]
+        //public PesananKamar KamarDipesan { get; set; }
 
         [Required]
         public double BiayaPemesanan { get; set; }
@@ -31,7 +32,7 @@ namespace WismaTamu.Model
         [Required]
         public double BiayaPiutang { get; set; }
 
-        [Required]
+        //[Required] --> Ini tidak required ternyata
         public string BuktiTransfer { get; set; }
 
         [Required]
@@ -52,12 +53,8 @@ namespace WismaTamu.Model
         public int HitungJumlahKamarDipesan()
         {
             WismaTamuDb db = new WismaTamuDb();
-            if (KamarDipesan != null)
-            {
-                return db.PesananKamar.Where(x => x.IdPesanan == IdPesanan).Count(); 
-            }
-
-            return 0;
+            return db.PesananKamar.Where(x => x.IdPesanan == IdPesanan).Count(); 
+           
         }
     }
 }

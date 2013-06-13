@@ -42,5 +42,10 @@ namespace WismaTamu.Pengendali
                 return false;
             }
         }
+
+        public static Anggota AmbilAnggota(string idPengguna)
+        {
+            return db.Anggota.SingleOrDefault(x => x.IdAnggota == idPengguna);
+        }
     }
 }

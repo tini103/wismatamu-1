@@ -33,6 +33,11 @@ namespace WismaTamu.Pengendali
             db.Kamar.Add(dataBaru);
             db.SaveChanges();
         }
+
+        public static Kamar AmbilKamar(int idKamar)
+        {
+            return db.Kamar.Single(x => x.IdKamar == idKamar);
+        }
     }
 }
 

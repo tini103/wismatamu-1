@@ -26,7 +26,7 @@ namespace WismaTamu
                 dataAnggotaBaru.NamaAnggota = tbNama.Text;
                 dataAnggotaBaru.AlamatAnggota = tbAlamat.Text;
                 dataAnggotaBaru.NomorKontakAnggota = tbKontak.Text;
-                dataAnggotaBaru.PasswordAnggota = tbSandi.Text;
+                dataAnggotaBaru.PasswordAnggota = Md5Helper.KonversiKeMd5(tbSandi.Text);
                 dataAnggotaBaru.SurelAnggota = tbSurel.Text;
                 PengendaliDataAnggota.TambahAnggotaBaru(dataAnggotaBaru);
                 tbIdentitas.Text = "";

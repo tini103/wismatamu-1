@@ -18,9 +18,26 @@ namespace WismaTamu
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            var data = PengendaliDataPesanan.Cari(idMember.Text, DateTime.Parse(tglPesanan.Text));
+            var data = PengendaliDataPesanan.Cari(idMember.Text);
             rpt.DataSource = data.ToList();
             rpt.DataBind();
+        }
+
+        protected void rpt_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            
+            switch (e.CommandName)
+            {
+                case "Setujui":
+                    PengendaliDataPesanan.SetujuiPesanan(Int16.Parse(e.CommandArgument.ToString()));
+                    break;
+                case "Batalkan":
+                    PengendaliDataPesanan.BatalkanPesanan(Int16.Parse(e.CommandArgument.ToString()));
+                    break;
+            }
+
+            rpt.DataBind();
+            
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using WismaTamu.Model;
@@ -121,15 +122,32 @@ namespace WismaTamu.Pengendali
                     }
                 }
             }
+
+
+            
             db.Pesanan.Add(dataPesananBaru);
             db.SaveChanges();
+          
+           
+            foreach (Kamar kamar in listKamar)
+            {
+                db.PesananKamar.Add(new PesananKamar { IdPesanan = dataPesananBaru.IdPesanan, IdKamar = kamar.IdKamar });
+            }
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbEntityValidationException e)
+            {
+
+            }
             return dataPesananBaru.IdPesanan;
         }
 
-        public static List<Pesanan> Cari(string idAnggota, DateTime tgl)
+        public static List<Pesanan> Cari(string idAnggota)
         {
             return db.Pesanan.Where(
-                        x => x.AnggotaPemesanId == idAnggota && x.TanggalCheckin == tgl).ToList();
+                        x => x.AnggotaPemesanId == idAnggota && x.StatusPembayaran == 0).ToList();
         }
 
         public static int SetBuktiPembayaran(string idAnggota)
@@ -143,6 +161,16 @@ namespace WismaTamu.Pengendali
             }
             else
                 return 0;
+        }
+
+        public static void SetujuiPesanan(int idPesanan)
+        {
+            db.Pesanan.SingleOrDefault(x => x.IdPesanan == idPesanan).StatusPembayaran = 1;
+        }
+
+        public static void BatalkanPesanan(int idPesanan)
+        {
+            db.Pesanan.SingleOrDefault(x => x.IdPesanan == idPesanan).StatusPembayaran = 1;
         }
     }
 }

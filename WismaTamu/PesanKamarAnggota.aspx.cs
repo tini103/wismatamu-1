@@ -115,13 +115,9 @@ namespace WismaTamu
 
         protected void btnPesan_Click(object sender, EventArgs e)
         {
-            
-
-            
-
             // Lakukan proses pemesanan secara langsung
             // Buat list kamar yang dipesan
-            List<PesananKamar> kamarDipesan = new List<PesananKamar>();
+            List<Kamar> kamarDipesan = new List<Kamar>();
 
             foreach (RepeaterItem item in rptKamar.Items)
             {
@@ -130,7 +126,7 @@ namespace WismaTamu
 
                 if (chk.Checked == true)
                 {
-                    kamarDipesan.Add(new PesananKamar { IdKamar = Int16.Parse(chk.Text) });
+                    kamarDipesan.Add(PengendaliKamar.AmbilKamar(Int16.Parse(chk.Text)));
                 }
             }
 
@@ -143,13 +139,13 @@ namespace WismaTamu
                 StatusPembayaran = 0,
                 StatusPenginapan = 0,
                 AnggotaPemesanId = PengendaliSesi.GetIdPengguna(),
-                BiayaPemesanan = (double) ViewState["biayaPesanan"],
-                BiayaPiutang = (double)ViewState["biayaPesanan"]
+                BiayaPemesanan = (double) ViewState["hargaTotal"],
+                BiayaPiutang = (double)ViewState["hargaTotal"],
             };
 
             // Proses pemesanan, ambil id nya
             // Nunggu commit dari Indra untuk implementasi pasti dari TambahPesananBaru
-            //int idPesanan = PengendaliDataPesanan.TambahPesananBaru(newPesanan);
+            int idPesanan = PengendaliDataPesanan.TambahPesananBaru(newPesanan, kamarDipesan);
 
 
             // Tampilkan tanda jadi pesanan
@@ -158,7 +154,18 @@ namespace WismaTamu
             pilihTanggalPlaceholder.Visible = false;
             hasilPesanan.Visible = true;
 
+
             // Tampilkan isi data-datanya
+            nmrPesanan.Text = idPesanan.ToString();
+            namaPemesan.Text = PengendaliDataAnggota.AmbilAnggota(newPesanan.AnggotaPemesanId).NamaAnggota;
+            alamatPemesan.Text = PengendaliDataAnggota.AmbilAnggota(newPesanan.AnggotaPemesanId).AlamatAnggota;
+            listKamarDipesan.Items.Clear();
+
+            foreach (Kamar kamar in kamarDipesan)
+            {
+                listKamarDipesan.Items.Add(new ListItem { Text = kamar.NamaKamar });
+            }
+
 
         }
 

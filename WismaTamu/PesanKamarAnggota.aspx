@@ -7,14 +7,15 @@
     Pesan Kamar
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="content" runat="server">
+    <asp:UpdatePanel ID="listKamarUpdatePanel" runat="server">
+    <ContentTemplate>
+    <asp:PlaceHolder ID="pilihTanggalPlaceholder" runat="server">
     <p>
         Melalui halaman ini, Anda dapat melakukan pemesanan kamar secara langsung.</p>
     <p>
         <strong>Langkah pertama: </strong> Tentukan tanggal check-in dan check-out yang diinginkan, lalu klik tombol "Cari Kamar". Sistem akan menampilkan kamar yang tersedia pada tanggal tersebut.
     </p>
-    <asp:UpdatePanel ID="listKamarUpdatePanel" runat="server">
-    <ContentTemplate>
-    <asp:PlaceHolder ID="pilihTanggalPlaceholder" runat="server">
+    
     <table>
         <tr>
             <td width="60%"><strong>Tanggal check-in</strong></td>
@@ -34,11 +35,12 @@
             </td>
         </tr>
     </table>
+    <asp:Button ID="btnCariKamar" runat="server" Text="Cari Kamar" OnClick="btnCariKamar_Click"/>
    </asp:PlaceHolder>
     
     
     <p>
-        <asp:Button ID="btnCariKamar" runat="server" Text="Cari Kamar" OnClick="btnCariKamar_Click"/>
+        
         
     </p>
     <asp:Label ID="lblStatus" Visible="false" runat="server"></asp:Label>
@@ -83,7 +85,7 @@
             </tr>
             <tr>
                 <td><strong>Kamar Dipesan</strong></td>
-                <td><asp:BulletedList ID="kamarYangDipesan" runat="server"></asp:BulletedList></td>
+                <td><asp:BulletedList ID="listKamarDipesan" runat="server"></asp:BulletedList></td>
             </tr>
         </table>
         <p>Silahkan untuk selanjutnya melakukan pembayaran pemesanan melalui rekening <strong>Bank BNI ITS atas nama REKTOR ITS nomor rekening 0049842577</strong>. Kemudian lakukan proses
