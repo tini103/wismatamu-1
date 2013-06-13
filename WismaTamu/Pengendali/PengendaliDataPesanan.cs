@@ -170,7 +170,7 @@ namespace WismaTamu.Pengendali
 
         public static void BatalkanPesanan(int idPesanan)
         {
-            db.Pesanan.SingleOrDefault(x => x.IdPesanan == idPesanan).StatusPembayaran = 1;
+            db.Pesanan.SingleOrDefault(x => x.IdPesanan == idPesanan).StatusPembayaran = -2;
         }
     }
 }
