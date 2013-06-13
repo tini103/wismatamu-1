@@ -13,12 +13,34 @@ namespace WismaTamu
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblTanggal.Text = DateTime.Now.ToString();
+            if (!IsPostBack)
+            {
+                lblTanggal.Text = DateTime.Now.ToString();
+                //grid.DataSource = PengendaliDataPesanan.LihatPesananCheckinHariIni().ToList();
+                repeater1.DataSource = PengendaliDataAnggota.LihatSemuaAnggota().ToList();
+                repeater1.DataBind();
+            }
         }
         protected void btCari_Click(object sender, EventArgs e)
         {
-            //PengendaliDataPesanan pengendaliDataPesanan;
-            PengendaliDataPesanan.LihatPesananKode(Int16.Parse(tbCari.Text));
+            repeater1.DataSource = PengendaliDataPesanan.LihatPesananKode(Int16.Parse(tbCari.Text));
+            repeater1.DataBind();
         }
+
+        protected void btnDetail_Click(object sender, EventArgs e)
+        {
+        }
+
+        protected void btnCheckin_Click(object sender, EventArgs e)
+        {
+        }
+
+        protected void btnCheckinDetail_Click(object sender, EventArgs e)
+        {
+        }
+
+        /*protected void btnDetail_Click(object sender, EventArgs e)
+        {
+        }*/
     }
 }

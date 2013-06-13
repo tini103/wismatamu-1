@@ -21,16 +21,31 @@ namespace WismaTamu.Pengendali
             return db.Anggota.SingleOrDefault(x => x.IdAnggota == idAnggota);
         }
 
-        public static void TambahAnggotaBaru(string ID, string nama, string alamat, string kontak, string sandi, string surel)
+        public static void TambahAnggotaBaru(Anggota dataAnggotaBaru)
         {
-            Anggota dataAnggotaBaru = new Anggota();
-            dataAnggotaBaru.IdAnggota = ID;
-            dataAnggotaBaru.NamaAnggota = nama;
-            dataAnggotaBaru.AlamatAnggota = alamat;
-            dataAnggotaBaru.NomorKontakAnggota = kontak;
-            dataAnggotaBaru.PasswordAnggota = sandi;
-            dataAnggotaBaru.SurelAnggota = surel;
+            
             db.Anggota.Add(dataAnggotaBaru);
+            db.SaveChanges();
+        }
+    
+        public static bool CekAnggota(string idPengguna,string kataSandiMD5)
+        {
+ 	        // Cek data anggota apakah ada atau tidak
+            kataSandiMD5 = Md5Helper.KonversiKeMd5(kataSandiMD5);
+            var dataAnggota = db.Anggota.Where(x => x.IdAnggota == idPengguna && x.PasswordAnggota == kataSandiMD5);
+            if (dataAnggota.Count() == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static Anggota AmbilAnggota(string idPengguna)
+        {
+            return db.Anggota.SingleOrDefault(x => x.IdAnggota == idPengguna);
         }
     }
 }

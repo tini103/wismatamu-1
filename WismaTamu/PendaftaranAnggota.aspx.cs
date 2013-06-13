@@ -6,7 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using WismaTamu.Pengendali;
 using WismaTamu.Sistem;
-
+using WismaTamu.Model;
+using System.IO;
 
 namespace WismaTamu
 {
@@ -20,8 +21,24 @@ namespace WismaTamu
         {
             if (cbSetuju.Checked)
             {
-                //PengendaliDataAnggota pengendaliAnggota = new PengendaliDataAnggota();
-                PengendaliDataAnggota.TambahAnggotaBaru(tbIdentitas.Text, tbNama.Text, tbAlamat.Text, tbKontak.Text, tbSandi.Text, tbSurel.Text);
+                Anggota dataAnggotaBaru = new Anggota();
+                dataAnggotaBaru.IdAnggota = tbIdentitas.Text;
+                dataAnggotaBaru.NamaAnggota = tbNama.Text;
+                dataAnggotaBaru.AlamatAnggota = tbAlamat.Text;
+                dataAnggotaBaru.NomorKontakAnggota = tbKontak.Text;
+                dataAnggotaBaru.PasswordAnggota = Md5Helper.KonversiKeMd5(tbSandi.Text);
+                dataAnggotaBaru.SurelAnggota = tbSurel.Text;
+                PengendaliDataAnggota.TambahAnggotaBaru(dataAnggotaBaru);
+                tbIdentitas.Text = "";
+                tbNama.Text = "";
+                tbAlamat.Text = "";
+                tbKontak.Text = "";
+                tbSandi.Text = "";
+                tbKonfSandi.Text = "";
+                tbSurel.Text = "";
+                Response.Write("<script>alert(\"Pendaftaran Berhasil!\");</script>");
+                Response.AddHeader("REFRESH", "1;URL=Default.aspx");
+                //Response.Redirect("~/Default.aspx");
             }
         }
     }

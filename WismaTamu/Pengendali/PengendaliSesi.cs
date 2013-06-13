@@ -19,14 +19,13 @@ namespace WismaTamu.Pengendali
             }
 
 
-            // Uncomment jika kelas PengendaliAnggota sudah diimplementasikan
-            //if(PengendaliiAnggota->CekAnggota(idPengguna, kataSandiMD5)
-            //{
-            //    HttpContext.Current.Session["idPengguna"] = idPengguna;
-            //    HttpContext.Current.Session["role"] = 1;
-            //
-            //    return true;
-            //}
+            if(PengendaliDataAnggota.CekAnggota(idPengguna, kataSandiMD5))
+            {
+                HttpContext.Current.Session["idPengguna"] = idPengguna;
+                HttpContext.Current.Session["role"] = 1;
+            
+                return true;
+            }
 
             return false;
             

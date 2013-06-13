@@ -34,5 +34,36 @@ namespace WismaTamu.Model
         {
             KamarTersedia = true;
         }
+
+        public string GetNamaWisma()
+        {
+            switch (Wisma)
+            {
+                case 0:
+                    return "Wisma Bougenville";
+
+                case 1:
+                    return "Wisma Yasmin";
+
+                case 2:
+                    return "Wisma Flamboyan";
+
+            }
+
+            return "";
+        }
+
+        public string GetTipeKamar()
+        {
+            switch (JenisKamar)
+            {
+                case 0:
+                    return "Single-Bed";
+                case 1:
+                    return "Double-Bed";
+            }
+
+            return "";
+        }
     }
 }

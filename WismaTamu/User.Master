@@ -42,34 +42,69 @@
 					    <div id="login-form">
                             <asp:PlaceHolder ID="loginPlaceholder" runat="server">
                                 <asp:TextBox ID="txtUserName" runat="server" placeholder="Nama pengguna"></asp:TextBox>
-                                <asp:TextBox ID="txtPassword" runat="server" placeholder="Kata sandi"></asp:TextBox>
+                                <asp:TextBox ID="txtPassword" runat="server" placeholder="Kata sandi" type="password"></asp:TextBox>
                                 <asp:Button ID="btnLogin" runat="server" Text="Log Masuk" />
                                 <asp:Button ID="btnDaftar" runat="server" Text="Daftar Pengguna Baru" />
                             </asp:PlaceHolder>
                             <asp:PlaceHolder ID="userInfoPlaceholder" runat="server">
                                 Anda masuk sebagai : <asp:Label ID="lblLoggedUser" runat="server" Text="Label"></asp:Label>
-                                <asp:Button ID="btnGantiPassword" runat="server" Text="Ganti Kata Sandi" />
+                                <asp:Button ID="btnKelolaAkun" runat="server" Text="Kelola Akun" />
                                 <asp:Button ID="btnLogout" runat="server" Text="Keluar (Logout)" />
                             </asp:PlaceHolder>
-
-						    
 					    </div>
 					    <center><strong>Menu Utama</strong></center>
 					    <div id="sidebar">
 						    <div class="sidebar-item">
-							    <img src="images/luv.png" class="mobile-hide">
+							    <img src="images/luv.png" class="mobile-hide"/>
 							    <p>
-								    <strong>Pencarian Kamar</strong>
+								    <strong><a href="/PesanKamarAnggota.aspx">Lakukan Pemesanan Kamar</a> </strong>
 								    Lakukan pencarian dan pemesanan kamar pada tanggal tertentu sesuai keinginan.
 							    </p>
 						    </div>
 						    <div class="sidebar-item" >
-							    <img src="images/kertas.png" class="mobile-hide">
+							    <img src="images/kertas.png" class="mobile-hide"/>
 							    <p>
-								    <strong>Konfirmasi Pembayaran</strong>
+								    <strong><a href="/KonfirmasiPembayaran.aspx">Konfirmasi Pembayaran</a></strong>
 								    Lakukan konfirmasi pembayaran pesanan yang sudah Anda lakukan.
 							    </p>
 						    </div>
+                            <% if(WismaTamu.Pengendali.PengendaliSesi.GetRolePengguna() == 0) { %>
+                                <div class="sidebar-item">
+                                    
+							    <p>
+								    <strong><a href="/Checkin.aspx">Check-In Tamu</a></strong><br />
+								    Lakukan proses check-in untuk tamu.
+							    </p>
+                                </div>
+                                <div class="sidebar-item">
+                                    
+							    <p>
+								    <strong><a href="/Checkout.aspx">Check-Out Tamu</a></strong><br />
+								    Lakukan proses check-out untuk tamu.
+							    </p>
+                                </div>
+                                <div class="sidebar-item">
+                                   
+							    <p>
+								    <strong><a href="/KelolaDataTransaksi.aspx">Melihat Data Transaksi</a></strong><br />
+								    Melihat data transaksi yang dilakukan oleh pengguna
+							    </p>
+                                </div>
+                                <div class="sidebar-item">
+                                    
+							    <p>
+								    <strong><a href="/KelolaDataAnggota.aspx">Melihat Data Anggota</a></strong><br />
+								    Melihat data anggota yang terdaftar di dalam sistem.
+							    </p>
+                                </div>
+                                <div class="sidebar-item">
+                                    
+							    <p>
+								    <strong><a href="/KelolaDataKamar.aspx">Melihat Data Kamar</a></strong><br />
+								    Melihat data kamar yang terdaftar pada Guethouse
+							    </p>
+                                </div>
+                            <% } %>
 					    </div>
 				    </div>
 				

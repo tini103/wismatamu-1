@@ -26,12 +26,8 @@ namespace WismaTamu.View
             else if(wisma == "Wisma Bougenvile")
                 PengendaliKamar.LihatSemuaKamar(3);
 
-            
-
             DetilKamarPlaceHolder.Visible = true;
-        }
-
-
-    
+            txtWisma.Text = wisma;
+        }    
     }
 }
